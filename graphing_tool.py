@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import openpyxl
 
-excel_file = "bio107_lab_student_data.xlsx"
+excel_file = "C:\\Users\\lsama\\OneDrive\\Documents\\Teaching\\HCC\\Laboratory\\Lab Manual\\Lab 1 Measurements\\bio107_lab_student_data.xlsx"
 df_1= pd.read_excel(excel_file)
 
 # get the column names of the df
@@ -30,3 +30,4 @@ for i in r:
     plt.title(f"{df_1.columns[x]} vs {df_1.columns[y_column_selection]}")
     plt.xlabel(f"{df_1.columns[x]} (cm)")
     plt.ylabel(f"{df_1.columns[y_column_selection]} (cm)")
+    plt.show()
