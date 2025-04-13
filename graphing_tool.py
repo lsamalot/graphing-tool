@@ -3,6 +3,7 @@ from scipy.stats import linregress
 import matplotlib.pyplot as plt
 import pandas as pd
 import openpyxl
+import streamlit
 
 excel_file = r"C:\Users\lsama\coding_c_drive\Graphing_Tool\bio107_lab_student_data.xlsx"
 df_1= pd.read_excel(excel_file)
