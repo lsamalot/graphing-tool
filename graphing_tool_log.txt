@@ -1,2 +1,12 @@
 # graphing_tool_log
 I got st.radio buttons to show df_2 columns. looks good.
+
+I have an x_axis (will be called 'x') that picks the column from DF_2, now I need to enter that x
+into all the places it needs to. 
+
+I added a number entering widget to select the number of columns that the graph will have
+
+## 4/14/25
+Added some y-axis st.widgets. 
+Tried to revisit the methods of creating df_2 from df_1. 
+    It was a transposition of the columms. 
