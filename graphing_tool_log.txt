@@ -10,3 +10,7 @@ I added a number entering widget to select the number of columns that the graph 
 Added some y-axis st.widgets. 
 Tried to revisit the methods of creating df_2 from df_1. 
     It was a transposition of the columms. 
+## 4/30/25
+Changed the y-axis number to "How many plots (plots) you would like on the graph"
+
+Todo: pick the y-axis columns to be plotted
