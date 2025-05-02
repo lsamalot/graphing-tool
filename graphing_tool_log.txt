@@ -15,3 +15,8 @@ button_trial.py
 Changed the y-axis number to "How many plots (plots) you would like on the graph"
 
 Todo: pick the y-axis columns to be plotted
+
+## 5/2/25
+Added iteration code to the num of plots needed. 
+
+To to: add plotting canvas, then iteration over data to be plotted onto the canvas
