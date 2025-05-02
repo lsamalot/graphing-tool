@@ -20,8 +20,11 @@ y_column_num = st.number_input("Enter the number of y-axis columns to graph", mi
 st.write(y_column_num)
 st.divider()
 
+# Add the y-axis 
 
 r = list(range(1, y_column_num + 1)) #make a list (processes from y_column_num) from which to iterate from
+for i in y_column_num:
+    y_column_selection = st.button("Select the data for the y-axis " i,  )
 for i in r:
     y_var = f"y_{i}" # Create a new key for y-data(column) 
     # streamlit version of 'y_column_selection'

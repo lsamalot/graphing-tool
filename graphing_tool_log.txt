@@ -11,6 +11,7 @@ Added some y-axis st.widgets.
 Tried to revisit the methods of creating df_2 from df_1. 
     It was a transposition of the columms. 
 ## 4/30/25
+button_trial.py
 Changed the y-axis number to "How many plots (plots) you would like on the graph"
 
 Todo: pick the y-axis columns to be plotted
