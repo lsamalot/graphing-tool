@@ -19,4 +19,14 @@ Todo: pick the y-axis columns to be plotted
 ## 5/2/25
 Added iteration code to the num of plots needed. 
 
-To to: add plotting canvas, then iteration over data to be plotted onto the canvas
+To to: add plotting canvas, then iteration over data to be plotted onto the canvas 
+
+## 5/3/25
+changed the structure a bit. 
+
+## 5/4/25
+Wrote a working code
+
+## 5/5/25
+Want to add functions to add units. 
+idea: a (yes/no) toggle switch which then activates a text box to add your units

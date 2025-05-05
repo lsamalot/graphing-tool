@@ -1,33 +1,60 @@
-import numpy as np
-from scipy.stats import linregress
-import matplotlib.pyplot as plt
 import pandas as pd
-import openpyxl
-import streamlit
+from scipy.stats import linregress
+import streamlit as st
+import matplotlib.pyplot as plt
+
 
 excel_file = r"C:\Users\lsama\coding_c_drive\Graphing_Tool\bio107_lab_student_data.xlsx"
 df_1= pd.read_excel(excel_file)
 
 # get the column names of the df
 column_names = df_1.columns.to_list() # make list out of column names
-df_2 = pd.DataFrame({"index": range(len(column_names)), #create a range for the index column of the DataFrame_2
-                  "columns": column_names})
-print(f"DataFrame 2\n", df_2) # display the dataframe so that the user can pick the x and y column of data
-# Pick your index from the df_2 for your x-axis
-x = int(input("which column will be the x-axis data, according to the df_2 index?")) #integer for picking x-axix df_1 column
-y_column_num = int(input("How many y-axis columns are you plotting with the same x-axis?"))
-r = list(range(1, y_column_num +1)) # make a list from which to iterate from
 
-for i in r:
-    y_var = f"y_{i}" # create a new key for y-data(column)
-    y_column_selection = int(input(f"From df_2, which column will be the y-{i} axis data")) # integer for picking y-axix df_1 column
-    slope, intersect, r_value, p_value, std_err = linregress(df_1.iloc[:, x], df_1.iloc[:, y_column_selection]) 
-    y_pred = df_1.iloc[:, x] * slope + intersect
 
-    # graphing section
-    plt.figure(i)
-    plt.scatter(df_1.iloc[:, x], df_1.iloc[:, y_column_selection])
-    plt.plot(df_1.iloc[:, x], y_pred)
-    plt.title(f"{df_1.columns[x]} vs {df_1.columns[y_column_selection]}")
-    plt.xlabel(f"{df_1.columns[x]} (cm)")
-    plt.ylabel(f"{df_1.columns[y_column_selection]} (cm)")
+# streamlit picking the x-axis
+x_axis_selection = st.radio("Select the X-axis for the graph",
+            column_names)
+st.write(x_axis_selection) 
+st.divider()
+
+# processing the data for the plotting math
+x_axis = df_1[x_axis_selection]
+st.write("This is the x-axis data", x_axis) # later remove the wording
+st.divider()
+
+# streamlit picking # of plots (lines) for the graph
+num_plots = int(st.number_input("Enter the number of plots (lines) you want on the graph", min_value=1, max_value=10, placeholder="Enter number here", step=1))
+st.write(num_plots)
+st.divider() 
+
+# set up the plotting canvas
+fig, ax = plt.subplots()
+
+st.divider()
+
+# iterate as many times as the number of plots, to select all y-axis data
+for i in range(1, num_plots+1):
+    # streamlit version of 'y_column_selection'
+    y_column_selection = st.radio(f"Pick which column will be the y-{i} axis data", options=column_names, index=0)
+    y_data = df_1[y_column_selection]
+    st.write(y_data) #just to see what the selection would be - erase afterwards
+
+    # Here we will take y_data and run linregress
+    slope, intercept, r_value, p_value, std_err = linregress(x_axis, y_data)
+
+    # Compute regression line
+    y_fit = slope * x_axis + intercept
+
+    # plot original data
+    ax.scatter(x_axis, y_data, label=f"{y_column_selection} (R²={r_value**2:.2f})")
+    ax.plot(x_axis, y_fit, '--', label=f"{y_column_selection} fit")
+
+# Customize plot
+ax.set_xlabel(x_axis_selection)
+ax.set_ylabel("Y-axis values")
+ax.set_title("Linear Regression Plot")
+ax.legend()
+ax.grid(True)
+
+# Show plot in Streamlit
+st.pyplot(fig) 
