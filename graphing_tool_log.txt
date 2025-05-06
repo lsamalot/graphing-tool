@@ -30,3 +30,10 @@ Wrote a working code
 ## 5/5/25
 Want to add functions to add units. 
 idea: a (yes/no) toggle switch which then activates a text box to add your units
+
+## 5/6/25
+Added y-axis label options
+Added graph titlt options
+All ran on Streamlit, will add it to the streamlit-ui branch as as working model
+
+To do: find out how to finish the readme.md file now that the program is ready to be seen.
