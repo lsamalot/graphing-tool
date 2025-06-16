@@ -19,7 +19,7 @@ This is a lightweight, interactive graphing application built with Python and St
 The tool is ideal for quick data exploration, teaching data analysis concepts, or creating visuals from experimental data.
 
 ## 🖼️ Screenshot
-![Streamlit graphing tool demo](images/Screenshot_graph.png)
+![Streamlit graphing tool demo](Images/Screenshot_graph.png)
 
 ## Installation
 ### Prerequisites
